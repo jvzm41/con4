@@ -1,0 +1,220 @@
+#include "headers.h"
+
+//Player 1 is max, 2 is min
+int checkBoardState(int board[8][7])
+{
+    //Score
+    int score = 0;
+    int x, y;
+    //------------------|
+    //Check for Player 1|
+    //------------------|
+    //Check horizontal
+    for (y = 0; y<7; y++){
+        for (x = 0; x < 8; x++){
+            if(board[x][y] == 1){
+                if(x+3 < 8){
+                    if (board[x+1][y] == 1 && board[x+2][y] == 1){
+                        if(board[x+3][y] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x+3][y] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x+1][y] == 1 && board[x+2][y] == 0 && board[x+3][y] == 0){
+                        score+=2;
+                    }
+                }
+                if (x-3 > -1){
+                    if (board[x-1][y] == 1 && board[x-2][y] == 1){
+                        if(board[x-3][y] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x-3][y] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x-1][y] == 1 && board[x-2][y] == 0 && board[x-3][y] == 0){
+                        score+=2;
+                    }
+                }
+            }
+        }
+    }
+
+    //Check vertical
+    for (x = 0; x<8; x++){
+        for (y = 0; y < 7; y++){
+            if(board[x][y] == 1){
+                if(y+3 < 7){
+                    if (board[x][y+1] == 1 && board[x][y+2] == 1){
+                        if(board[x][y+3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x][y+3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x][y+1] == 1 && board[x][y+2] == 0 && board[x][y+3] == 0){
+                        score+=2;
+                    }
+                }
+                if (y-3 > -1){
+                    if (board[x][y-1] == 1 && board[x][y-2] == 1){
+                        if(board[x][y-3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x][y-3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x][y-1] == 1 && board[x][y-2] == 0 && board[x][y-3] == 0){
+                        score+=2;
+                    }
+                }
+            }
+        }
+    }
+
+    //Check diagonal
+    for (y = 0; y<7; y++){
+        for (x = 0; x < 8; x++){
+            if(board[x][y] == 1){
+                if(x+3 < 8 && y+3 < 7){
+                    if (board[x+1][y+1] == 1 && board[x+2][y+2] == 1){
+                        if(board[x+3][y+3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x+3][y+3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x+1][y+1] == 1 && board[x+2][y+2] == 0 && board[x+3][y+3] == 0){
+                        score+=2;
+                    }
+                }
+                if (x-3 > -1 && y-3 > -1){
+                    if (board[x-1][y-1] == 1 && board[x-2][y-2] == 1){
+                        if(board[x-3][y-3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x-3][y-3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x-1][y-1] == 1 && board[x-2][y-2] == 0 && board[x-3][y-3] == 0){
+                        score+=2;
+                    }
+                }
+            }
+        }
+    }
+
+    //------------------|
+    //Check for Player 2|
+    //------------------|
+    //Check horizontal
+    for (y = 0; y<7; y++){
+        for (x = 0; x < 8; x++){
+            if(board[x][y] == 2){
+                if(x+3 < 8){
+                    if (board[x+1][y] == 2 && board[x+2][y] == 2){
+                        if(board[x+3][y] == 2){
+                            return std::numeric_limits<int>::min();
+                        }
+                        else if (board[x+3][y] == 0){
+                            score -=3;
+                        }
+                    }
+                    else if (board[x+1][y] == 2 && board[x+2][y] == 0 && board[x+3][y] == 0){
+                        score-=2;
+                    }
+                }
+                if (x-3 > -1){
+                    if (board[x-1][y] == 2 && board[x-2][y] ==2){
+                        if(board[x-3][y] == 2){
+                            return std::numeric_limits<int>::min();
+                        }
+                        else if (board[x-3][y] == 0){
+                            score -=3;
+                        }
+                    }
+                    else if (board[x-1][y] == 2 && board[x-2][y] == 0 && board[x-3][y] == 0){
+                        score-=2;
+                    }
+                }
+            }
+        }
+    }
+
+    //Check vertical
+    for (x = 0; x<8; x++){
+        for (y = 0; y < 7; y++){
+            if(board[x][y] == 2){
+                if(y+3 < 7){
+                    if (board[x][y+1] == 2 && board[x][y+2] == 2){
+                        if(board[x][y+3] == 2){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x][y+3] == 0){
+                            score -=3;
+                        }
+                    }
+                    else if (board[x][y+1] == 2 && board[x][y+2] == 0 && board[x][y+3] == 0){
+                        score-=2;
+                    }
+                }
+                if (y-3 > -1){
+                    if (board[x][y-1] == 2 && board[x][y-2] == 2){
+                        if(board[x][y-3] == 2){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x][y-3] == 0){
+                            score -=3;
+                        }
+                    }
+                    else if (board[x][y-1] == 2 && board[x][y-2] == 0 && board[x][y-3] == 0){
+                        score-=2;
+                    }
+                }
+            }
+        }
+    }
+
+    //Check diagonal
+    for (y = 0; y<7; y++){
+        for (x = 0; x < 8; x++){
+            if(board[x][y] == 1){
+                if(x+3 < 8 && y+3 < 7){
+                    if (board[x+1][y+1] == 1 && board[x+2][y+2] == 1){
+                        if(board[x+3][y+3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x+3][y+3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x+1][y+1] == 1 && board[x+2][y+2] == 0 && board[x+3][y+3] == 0){
+                        score+=2;
+                    }
+                }
+                if (x-3 > -1 && y-3 > -1){
+                    if (board[x-1][y-1] == 1 && board[x-2][y-2] == 1){
+                        if(board[x-3][y-3] == 1){
+                            return std::numeric_limits<int>::max();
+                        }
+                        else if (board[x-3][y-3] == 0){
+                            score +=3;
+                        }
+                    }
+                    else if (board[x-1][y-1] == 1 && board[x-2][y-2] == 0 && board[x-3][y-3] == 0){
+                        score+=2;
+                    }
+                }
+            }
+        }
+    }
+
+    return score;
+}
