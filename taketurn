@@ -1,0 +1,85 @@
+#include "headers.h"
+
+//Return true if move successfully made, else return false
+bool takeTurn(int board[8][7], int choice, int player)
+{
+    int x = 0;
+    int y = 0;
+    switch (choice) {
+        case 0:
+            x = 0;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 1:
+            x = 1;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 2:
+            x = 2;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 3:
+            x = 3;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 4:
+            x = 4;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 5:
+            x = 5;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 6:
+            x = 6;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        case 7:
+            x = 7;
+            for (y = 6; y > -1; y--)
+            {
+                if (board[x][y] == 0) {
+                    board[x][y] = player;
+                    return true;
+                 }
+            }
+        default:
+            return false;
+    }
+    return true;
+}
