@@ -1,0 +1,25 @@
+#include "headers.h"
+
+void copyBoard(int board[8][7], int cBoard[8][7])
+{
+
+    for (int x = 0; x < 8; x++)
+    {
+        for (int y = 0; y < 7; y++)
+        {
+            cBoard[x][y] = board[x][y];
+        }
+    }
+}
+
+int numOpenSpaces(int board[8][7])
+{
+    int c = 0;
+    for (int x = 0; x < 8; x++){
+        for (int y = 0; y < 7; y++){
+            if (board[x][y] == 0)
+                c += 1;
+        }
+    }
+    return c;
+}
