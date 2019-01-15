@@ -1,0 +1,35 @@
+#include <iostream>
+#include "headers.h"
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    if (argc == 58)
+    {
+        time_t start = time(0);
+        int incBoard[56];
+        for (int i = 2; i < 58; i++)
+        {
+            incBoard[i-2] == atoi(argv[i]);
+        }
+
+        int player_t = atoi(argv[0]);
+
+        double tMax = static_cast<double>(atoi(argv[1]));
+
+        int board[8][7];
+        int z = 0;
+        for (int y = 0; y < 7; y++)
+        {
+            for (int x = 0; x < 8; x++){
+                board[x][y] == incBoard[z];
+                z++;
+            }
+
+        }
+        int choice = miniMax(board, start, tMax, player_t);
+        return choice;
+    }
+    else
+        return 0;
+}
