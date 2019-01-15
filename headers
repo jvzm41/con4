@@ -1,0 +1,10 @@
+#ifndef HEADERS_H
+#define HEADERS_H
+
+#include <iostream>
+#include <time.h>
+#include <limits>
+#include <stdlib.h>
+#include "prototypes.h"
+
+#endif // HEADERS_H
