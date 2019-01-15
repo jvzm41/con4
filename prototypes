@@ -1,0 +1,10 @@
+#include "headers.h"
+
+void displayBoard(int[][7]);
+bool takeTurn(int[][7], int, int);
+int checkBoardState(int[][7]);
+int miniMax(int[][7], time_t, double, int);
+int fMax(int[][7], int, int);
+int fMin(int[][7], int ,int);
+void copyBoard(int[][7], int[][7]);
+int numOpenSpaces(int[][7]);
